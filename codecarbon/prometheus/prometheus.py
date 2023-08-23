@@ -35,7 +35,7 @@ class Prometheus:
         """
 
         # Save the values of the metrics to the local registry
-        duration_gauge.set(int(carbon_emission["duration"]))
+        duration_gauge.labels(project_name=carbon_emission["project_name"]).set(int(carbon_emission["duration"]))
         emissions_gauge.set(carbon_emission["emissions"])
         emissions_rate_gauge.set(carbon_emission["emissions_rate"])
         cpu_power_gauge.set(carbon_emission["cpu_power"])
@@ -51,6 +51,6 @@ class Prometheus:
             self.prometheus_url,
             job="codecarbon",
             registry=registry,
-            grouping_key={"project_id": carbon_emission["project_id"]},
+            grouping_key={"project_name": carbon_emission["project_name"]},
             handler=self._auth_handler,
         )
