@@ -525,7 +525,7 @@ class BaseEmissionsTracker(ABC):
 
         emissions_data = self._prepare_emissions_data()
 
-        # self._persist_data(emissions_data, experiment_name=self._experiment_name)
+        self._persist_data(emissions_data, experiment_name=self._experiment_name)
 
         self.final_emissions_data = emissions_data
         self.final_emissions = emissions_data.emissions
@@ -537,14 +537,14 @@ class BaseEmissionsTracker(ABC):
                 emissions_data = self._prepare_emissions_data(delta=True)
 
             persistence.out(emissions_data)
-            if isinstance(persistence, FileOutput):
-                if len(self._tasks) > 0:
-                    task_emissions_data = []
-                    for task in self._tasks:
-                        task_emissions_data.append(self._tasks[task].out())
-                    persistence.task_out(
-                        task_emissions_data, experiment_name, self._output_dir
-                    )
+            # if isinstance(persistence, FileOutput):
+            #     if len(self._tasks) > 0:
+            #         task_emissions_data = []
+            #         for task in self._tasks:
+            #             task_emissions_data.append(self._tasks[task].out())
+            #         persistence.task_out(
+            #             task_emissions_data, experiment_name, self._output_dir
+            #         )
 
     def _prepare_emissions_data(self, delta=False) -> EmissionsData:
         """
