@@ -51,5 +51,6 @@ class Prometheus:
             self.prometheus_url,
             job="codecarbon",
             registry=registry,
+            grouping_key={"project_id": carbon_emission["project_id"]},
             handler=self._auth_handler,
         )
