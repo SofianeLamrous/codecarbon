@@ -32,11 +32,13 @@ labelnames = [
 duration_gauge = Gauge(
     "codecarbon_duration",
     "Duration from last measure (s)",
+    labelnames=labelnames,
     registry=registry,
 )
 emissions_gauge = Gauge(
     "codecarbon_emissions",
     "Emissions as CO₂-equivalents [CO₂eq] (kg)",
+    labelnames=labelnames,
     registry=registry,
 )
 emissions_rate_gauge = Gauge(
