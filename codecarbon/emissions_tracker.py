@@ -525,7 +525,7 @@ class BaseEmissionsTracker(ABC):
 
         emissions_data = self._prepare_emissions_data()
 
-        self._persist_data(emissions_data, experiment_name=self._experiment_name)
+        # self._persist_data(emissions_data, experiment_name=self._experiment_name)
 
         self.final_emissions_data = emissions_data
         self.final_emissions = emissions_data.emissions
