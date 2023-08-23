@@ -49,7 +49,7 @@ class Prometheus:
         # Send the new metric values
         push_to_gateway(
             self.prometheus_url,
-            job="codecarbon",
+            job="codecarbon2",
             registry=registry,
             handler=self._auth_handler,
         )

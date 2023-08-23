@@ -34,7 +34,6 @@ duration_gauge = Gauge(
     "codecarbon_duration",
     "Duration from last measure (s)",
     labelnames=labelnames2,
-    unit="s",
     registry=registry,
 )
 emissions_gauge = Gauge(
